@@ -1,0 +1,9 @@
+version: "v1"
+project: "pet-reminder"
+services:
+  frontend:
+    nginx:
+       image: jzaefferer/pet-reminder
+       domain: "pet-reminder.sloppy.zone"
+       port: 3000
+       mem: 64
