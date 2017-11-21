@@ -3,7 +3,9 @@ project: "pet-reminder"
 services:
   frontend:
     nginx:
-       image: jzaefferer/pet-reminder
-       domain: "pet-reminder.sloppy.zone"
-       port: 3000
-       mem: 64
+      image: jzaefferer/pet-reminder
+      domain: "pet-reminder.sloppy.zone"
+      port: 80
+      mem: 64
+      env:
+        - PETS_API_URL: https://pet-reminder-api.sloppy.zone/
