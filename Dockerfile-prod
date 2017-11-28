@@ -1,17 +1,14 @@
 FROM node:8-alpine as builder
 
-
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock /usr/src/app/
-RUN yarn install --non-interactive --pure-lockfile
+COPY package.json package-lock.json /usr/src/app/
+RUN npm install --only=production --silent
 
 COPY public public/
 COPY src src/
 
-# should run this on actual CI builds
-# RUN CI=true yarn test
-RUN yarn build
+RUN npm run build
 
 ## 2nd stage
 

@@ -2,9 +2,9 @@ FROM node:8-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock /usr/src/app/
-RUN yarn install --non-interactive --pure-lockfile
+COPY package.json package-lock.json /usr/src/app/
+RUN npm install --silent
 
-COPY . /usr/src/app/
+COPY . .
 
-CMD ["yarn", "start"]
+CMD npm start
