@@ -13,6 +13,9 @@ class App extends Component {
       .then(pets => {
         this.setState({ pets })
       })
+      .catch(error => {
+        console.log('failed to fetch', error)
+      })
   }
   render() {
     return (
